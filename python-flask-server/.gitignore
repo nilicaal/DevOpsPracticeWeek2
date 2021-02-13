@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# ADDED MANUALLY BY NIELS 14-02-2021: Mac specific DS_Store ignore.
+.DS_Store
+
 # Distribution / packaging
 .Python
 env/
