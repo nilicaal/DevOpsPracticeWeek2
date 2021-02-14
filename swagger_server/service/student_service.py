@@ -35,8 +35,12 @@ def add_student(student):
 
 # This comment is purely meant to be some difference for the get student by id
 # function, so git knows there is a difference.
-def get_student_by_id(student_id, subject):
-    student = student_db.get(doc_id=int(student_id))
+def get_student_by_id(student_id, subject, last_name):
+    if last_name:
+        student = student_db.get(last_name=last_name)
+    else:
+        student = student_db.get(doc_id=int(student_id))
+
     if not student:
         return student
 
@@ -55,4 +59,4 @@ def delete_student(student_id):
     if not student:
         return student
     student_db.remove(doc_ids=[int(student_id)])
-    return student_id
+    return student_id, 200
