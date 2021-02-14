@@ -6,7 +6,7 @@ import typing
 
 def _deserialize(data, klass):
     """Deserializes dict, list, str into an object.
-    
+
     :param data: dict, list or str.
     :param klass: class literal, or string of class name.
     :return: object.
@@ -28,8 +28,8 @@ def _deserialize(data, klass):
             return _deserialize_list(data, klass.__args__[0])
         if klass.__origin__ == dict:
             return _deserialize_dict(data, klass.__args__[1])
-        else:
-            return deserialize_model(data, klass)
+    else:
+        return deserialize_model(data, klass)
 
 def _deserialize_primitive(data, klass):
     """Deserializes to primitive type.

@@ -21,6 +21,7 @@ def add_student(student):
     query = Query()
     queries.append(query.first_name == student.first_name)
     queries.append(query.last_name == student.last_name)
+    # queries.append()
     query = reduce(lambda a, b: a & b, queries)
     res = student_db.search(query)
     if res:
