@@ -29,7 +29,8 @@ def add_student(student):
     student.student_id = doc_id
     return student.student_id
 
-
+# This comment is purely meant to be some difference for the get student by id
+# function, so git knows there is a difference.
 def get_student_by_id(student_id, subject):
     student = student_db.get(doc_id=int(student_id))
     if not student:
