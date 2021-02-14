@@ -17,6 +17,9 @@ student_db = TinyDB(db_file_path)
 # This comment's main purpose is also to serve as a commit-inducing
 # entity.
 def add_student(student):
+    if (student.first_name is None or student.last_name is None):
+        return 'unable to add user, provide all details.', 405
+
     queries = []
     query = Query()
     queries.append(query.first_name == student.first_name)
