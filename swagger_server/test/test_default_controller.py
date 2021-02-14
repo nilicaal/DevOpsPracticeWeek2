@@ -9,7 +9,6 @@ from swagger_server.models.student import Student  # noqa: E501
 from swagger_server.test import BaseTestCase
 import names
 
-
 class TestDefaultController(BaseTestCase):
     """DefaultController integration test stubs"""
 
@@ -18,8 +17,8 @@ class TestDefaultController(BaseTestCase):
         Add a new student
         """
         body = Student()
-        body.first_name = body.get_first_name()
-        body.last_name = body.get_last_name()
+        body.first_name = names.get_first_name()
+        body.last_name = names.get_last_name()
         body.grades = {'math': 8, 'history': 9}
         response = self.client.open(
             '/service-api/student',
