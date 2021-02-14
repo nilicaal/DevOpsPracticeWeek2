@@ -41,7 +41,7 @@ def get_student_by_id(student_id, subject):
 
     # If no subject was provided, or if it exists
     # in the list of subjects:
-    if not subject || subject in student.grades:
+    if (not subject || subject in student.grades):
         return student
     else:
         return 'Student not found', 404
