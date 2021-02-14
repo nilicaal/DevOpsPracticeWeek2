@@ -76,7 +76,7 @@ paths:
       parameters:
       - name: "student_id"
         in: "path"
-        description: "ID of student to return"
+        description: "ID of student to delete"
         required: true
         type: "integer"
         format: "int64"
