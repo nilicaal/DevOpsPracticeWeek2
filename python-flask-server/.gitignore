@@ -1,3 +1,6 @@
+# ADDED MANUALLY BY NIELS 14-02-2021: Mac specific DS_Store ignore.
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
