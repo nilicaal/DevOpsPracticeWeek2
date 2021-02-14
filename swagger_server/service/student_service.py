@@ -28,7 +28,7 @@ def add_student(student):
 
     doc_id = student_db.insert(student.to_dict())
     student.student_id = doc_id
-    return student.student_id
+    return student.student_id, 200
 
 # This comment is purely meant to be some difference for the get student by id
 # function, so git knows there is a difference.
