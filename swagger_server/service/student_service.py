@@ -14,7 +14,8 @@ db_dir_path = tempfile.gettempdir()
 db_file_path = os.path.join(db_dir_path, "students.json")
 student_db = TinyDB(db_file_path)
 
-
+# This comment's main purpose is also to serve as a commit-inducing
+# entity.
 def add_student(student):
     queries = []
     query = Query()
