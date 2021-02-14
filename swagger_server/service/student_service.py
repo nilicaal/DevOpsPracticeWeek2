@@ -49,6 +49,19 @@ def get_student_by_id(student_id, subject):
     else:
         return 'Student not found', 404
 
+def get_student_by_last_name(last_name, subject):
+    student = student_db.get(last_name=last_name)
+    if not student:
+        return student
+
+    student = Student.from_dict(student)
+
+    # If no subject was provided, or if it exists
+    # in the list of subjects:
+    if not subject or subject in student.grades:
+        return student
+    else:
+        return 'Student not found', 404
 
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
