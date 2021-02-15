@@ -46,11 +46,6 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - name: "subject"
-        in: "query"
-        description: "The subject name"
-        required: false
-        type: "string"
       - name: "last_name"
         in: "query"
         description: "Last name of student to return"
