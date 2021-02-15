@@ -50,15 +50,18 @@ def get_student_by_id(student_id, subject):
         return 'Student not found', 404
 
 def get_student_by_last_name(last_name, subject):
-    student = student_db.get(last_name=last_name)
+    queries = []
+    query = Query()
+    queries.append(query.last_name == last_name)
+    query = reduce(lambda a, b: a & b, queries)
+    student = student_db.search(query)
+    print(student)
     if not student:
         return student
 
-    student = Student.from_dict(student)
-
     # If no subject was provided, or if it exists
     # in the list of subjects:
-    if not subject or subject in student.grades:
+    if not subject or subject in student[0]['grades']:
         return student
     else:
         return 'Student not found', 404
