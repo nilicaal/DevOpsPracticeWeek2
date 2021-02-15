@@ -19,9 +19,9 @@ before_script:
 - npm --version
 - node_modules/.bin/newman --version
 script:
-- python -m unittest discover
 - docker network create swagger_network
 - docker run -d --network swagger_network --name example_db -t -p 127.0.0.1:27017:27017 mongo
+- python -m unittest discover
 - docker build -t swagger-spring-example:1.0.0 .
 - docker run -d --network swagger_network --name example_api -t -p 127.0.0.1:8080:8080 swagger-spring-example:1.0.0
 - docker ps
