@@ -31,7 +31,7 @@ script:
 after_success:
 - docker build -t swagger_server .
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker tag swagger_server nilicaal/devops/swagger_server
+- docker tag swagger_server nilicaal/devops:swagger_server
 - docker push nilicaal/devops:swagger_server
 env:
   global:
