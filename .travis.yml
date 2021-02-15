@@ -29,8 +29,9 @@ script:
 - docker logs example_api
 - node_modules/.bin/newman run tests/postman_collection.json -e tests/postman_environment.json
 after_success:
+- docker build -t swagger_server .
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker tag push nilicaal/devops/swagger_server nilicaal/devops/swagger_server
+- docker tag swagger_server nilicaal/devops/swagger_server
 - docker push nilicaal/devops/swagger_server
 env:
   global:
