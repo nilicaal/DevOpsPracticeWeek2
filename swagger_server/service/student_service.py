@@ -55,7 +55,7 @@ def get_student_by_last_name(last_name, subject):
     queries.append(query.last_name == last_name)
     query = reduce(lambda a, b: a & b, queries)
     student = student_db.search(query)
-    print(student)
+
     if not student:
         return student
 
