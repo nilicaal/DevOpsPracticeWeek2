@@ -21,13 +21,13 @@ before_script:
 script:
 - docker network create swagger_network
 - docker run -d --network swagger_network --name example_db -t -p 127.0.0.1:27017:27017 mongo
-- python -m unittest discover
 - docker build -t swagger-spring-example:1.0.0 .
 - docker run -d --network swagger_network --name example_api -t -p 127.0.0.1:8080:8080 swagger-spring-example:1.0.0
 - docker ps
 - count=0 && until $(curl --output /dev/null --silent --head --fail http://localhost:8080/service-api/ui/);
   do printf '.' && sleep 3 && count=$((count+1)) && if [ $count -gt 5 ]; then break;
   fi; done
+- python -m unittest discover
 - docker logs example_api
 - node_modules/.bin/newman run tests/postman_collection.json -e tests/postman_environment.json
 after_success:
