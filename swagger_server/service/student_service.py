@@ -62,7 +62,7 @@ def get_student_by_last_name(last_name, subject):
     # If no subject was provided, or if it exists
     # in the list of subjects:
     if not subject or subject in student[0]['grades']:
-        return student
+        return student[0]
     else:
         return 'Student not found', 404
 
