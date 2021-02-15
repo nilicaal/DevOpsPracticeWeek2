@@ -23,12 +23,14 @@ def add_student(student):
     if res.count() > 0:
         return 'already exists', 409
 
-    res = student_db.insert_one(student.to_dict())
-    return student.student_id
+    newStudent = student.to_dict()
+    # newStudent["_id"] = student.student_id
+    res = student_db.insert_one(newStudent)
+    return int(student.student_id), 200
 
 # Returns a student by their ID.
 def get_student_by_id(student_id, subject):
-    student = student_db.find({"doc_id": int(student_id)})
+    student = student_db.find({"_id": int(student_id)})
 
     if student.count() < 1:
         return 'no students found', 404
