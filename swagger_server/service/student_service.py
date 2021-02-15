@@ -20,7 +20,7 @@ def add_student(student):
     res = student_db.find({"first_name" : student.first_name,
                          "last_name" : student.last_name })
 
-    if res.count() > 0:
+    if res.count_documents > 0:
         return 'already exists', 409
 
     res = student_db.insert_one(student.to_dict())
